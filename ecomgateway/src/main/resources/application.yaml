@@ -1,0 +1,25 @@
+server:
+  port: 6060
+
+spring:
+  application:
+    name: ecomgateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: orderservice
+          uri: http://localhost:6062
+          predicates:
+            - Path=/order/**
+          filters:
+            - StripPrefix=1
+        - id: paymentservice
+          uri: http://localhost:6061
+          predicates:
+            - Path=/payment/**
+          filters:
+            - StripPrefix=1
+logging:
+  level:
+    web: TRACE
