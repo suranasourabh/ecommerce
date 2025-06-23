@@ -1,0 +1,22 @@
+server:
+  port: 6062
+spring:
+  application:
+    name: orderservice
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: admin
+    password: admin
+    driverClassName: org.h2.Driver
+    initialization-mode: always
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
